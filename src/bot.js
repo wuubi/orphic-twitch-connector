@@ -34,9 +34,21 @@ function onMessageHandler (target, context, msg, self) {
     const num = rollDice(commandName);
     client.say(target, `You rolled a ${num}. Link: https://glitch.com/~twitch-chatbot`);
     console.log(`* Executed ${commandName} command`);
-  } else {
+  }
+  if (commandName.includes('ps')) {
+    client.say(target, `message included ps.`);
+    console.log(`ps`);
+    let res = commandName.slice(3);
+    psPressButton(res);
+  }
+  else {
     console.log(`* Unknown command ${commandName}`);
   }
+}
+
+function psPressButton (selButton) {
+  const button = selButton;
+  console.log(button);
 }
 
 // Function called when the "dice" command is issued
